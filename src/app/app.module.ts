@@ -1,18 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FlyoutModule } from './../../projects/flyout/src/lib/flyout.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FlyoutModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent
+	],
+	imports: [
+		CommonModule,
+		FlyoutModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
