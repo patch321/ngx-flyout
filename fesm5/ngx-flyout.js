@@ -7,17 +7,19 @@ import { CommonModule } from '@angular/common';
  * @suppress {checkTypes} checked by tsc
  */
 var FlyoutService = /** @class */ (function () {
-    function FlyoutService() {
-    }
-    FlyoutService.decorators = [
-        { type: Injectable, args: [{
-                    providedIn: 'root'
-                },] },
-    ];
-    /** @nocollapse */
-    FlyoutService.ctorParameters = function () { return []; };
+	function FlyoutService() {
+	}
+	FlyoutService.decorators = [
+		{
+			type: Injectable, args: [{
+				providedIn: 'root'
+			},]
+		},
+	];
+	/** @nocollapse */
+	FlyoutService.ctorParameters = function () { return []; };
     /** @nocollapse */ FlyoutService.ngInjectableDef = defineInjectable({ factory: function FlyoutService_Factory() { return new FlyoutService(); }, token: FlyoutService, providedIn: "root" });
-    return FlyoutService;
+	return FlyoutService;
 }());
 
 /**
@@ -25,123 +27,123 @@ var FlyoutService = /** @class */ (function () {
  * @suppress {checkTypes} checked by tsc
  */
 var FlyoutComponent = /** @class */ (function () {
-    function FlyoutComponent() {
+	function FlyoutComponent() {
         /**
          * Fired when flyout is opened
          *
          * \@memberof FlyoutComponent
          */
-        this.flyoutOpened = new EventEmitter();
+		this.flyoutOpened = new EventEmitter();
         /**
          * Fired when flyout is closed
          *
          * \@memberof FlyoutComponent
          */
-        this.flyoutClosed = new EventEmitter();
+		this.flyoutClosed = new EventEmitter();
         /**
          * Use for two way data binding on open
          *
          * \@memberof FlyoutComponent
          */
-        this.openChange = new EventEmitter();
+		this.openChange = new EventEmitter();
         /**
          * Position of layout
          * left, right, top, bottom
          *
          * \@memberof FlyoutComponent
          */
-        this.position = 'right';
+		this.position = 'right';
         /**
          * Whether flyout is open or not
          *
          * \@memberof FlyoutComponent
          */
-        this.open = false;
+		this.open = false;
         /**
          * Whether to show close button or not
          *
          * \@memberof FlyoutComponent
          */
-        this.showCloseButton = true;
+		this.showCloseButton = true;
         /**
          * Additional css classes to style flyout
          *
          * \@memberof FlyoutComponent
          */
-        this.flyoutClasses = [];
+		this.flyoutClasses = [];
         /**
          * Whether to show backdrop or not
          *
          * \@memberof FlyoutComponent
          */
-        this.showBackdrop = true;
+		this.showBackdrop = true;
         /**
          * Whether to close flyout when clicked on backdrop
          *
          * \@memberof FlyoutComponent
          */
-        this.hideOnBackdropClick = true;
+		this.hideOnBackdropClick = true;
         /**
          * Additional css classes to style backdrop
          *
          * \@memberof FlyoutComponent
          */
-        this.backdropClasses = [];
+		this.backdropClasses = [];
         /**
          * Default css classes which will be applied on flyout
          *
          * \@memberof FlyoutComponent
          */
-        this._defaultFlyoutClasses = ['flyout'];
+		this._defaultFlyoutClasses = ['flyout'];
         /**
          * Default css classes which will be applied on backdrop
          *
          * \@memberof FlyoutComponent
          */
-        this._defaultBackdropClasses = ['backdrop'];
-    }
+		this._defaultBackdropClasses = ['backdrop'];
+	}
     /**
      * @return {?}
      */
-    FlyoutComponent.prototype.ngOnInit = /**
+	FlyoutComponent.prototype.ngOnInit = /**
      * @return {?}
      */
-    function () {
-        this._renderUi();
-        this._enableAnimation();
-    };
+		function () {
+			this._renderUi();
+			this._enableAnimation();
+		};
     /**
      * Handle ngOnChanges event
      *
      * @memberof FlyoutComponent
      */
     /**
-     * Handle ngOnChanges event
-     *
-     * \@memberof FlyoutComponent
-     * @param {?} changes
-     * @return {?}
-     */
-    FlyoutComponent.prototype.ngOnChanges = /**
      * Handle ngOnChanges event
      *
      * \@memberof FlyoutComponent
      * @param {?} changes
      * @return {?}
      */
-    function (changes) {
-        if (changes['open']) {
-            if (this.open) {
-                this._openFlyout();
-            }
-            else {
-                this._closeFlyout();
-            }
-        }
-        else {
-            this._renderUi();
-        }
-    };
+	FlyoutComponent.prototype.ngOnChanges = /**
+     * Handle ngOnChanges event
+     *
+     * \@memberof FlyoutComponent
+     * @param {?} changes
+     * @return {?}
+     */
+		function (changes) {
+			if (changes['open']) {
+				if (this.open) {
+					this._openFlyout();
+				}
+				else {
+					this._closeFlyout();
+				}
+			}
+			else {
+				this._renderUi();
+			}
+		};
     /**
      * Update css classes on flyout
      *
@@ -153,19 +155,19 @@ var FlyoutComponent = /** @class */ (function () {
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    FlyoutComponent.prototype._updateFlyoutClassList = /**
+	FlyoutComponent.prototype._updateFlyoutClassList = /**
      * Update css classes on flyout
      *
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    function () {
-        var /** @type {?} */ classList = __spread(this._defaultFlyoutClasses, this.flyoutClasses, [this.position]);
-        if (this.open) {
-            classList.push('open');
-        }
-        this.flyout.nativeElement.className = classList.join(' ');
-    };
+		function () {
+			var /** @type {?} */ classList = __spread(this._defaultFlyoutClasses, this.flyoutClasses, [this.position]);
+			if (this.open) {
+				classList.push('open');
+			}
+			this.flyout.nativeElement.className = classList.join(' ');
+		};
     /**
      * Update transporm property of flyout
      *
@@ -177,42 +179,42 @@ var FlyoutComponent = /** @class */ (function () {
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    FlyoutComponent.prototype._updateFlyoutTransform = /**
+	FlyoutComponent.prototype._updateFlyoutTransform = /**
      * Update transporm property of flyout
      *
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    function () {
-        if (this.open) {
-            this.flyout.nativeElement.style.transform = 'translate3d(0, 0, 0)';
-        }
-        else {
-            var /** @type {?} */ element = this.flyout.nativeElement;
-            var /** @type {?} */ dimension = {
-                left: parseInt(element.style.left, 10) || 0,
-                right: parseInt(element.style.right, 10) || 0,
-                top: parseInt(element.style.top, 10) || 0,
-                bottom: parseInt(element.style.bottom, 10) || 0,
-                width: element.offsetWidth || 0,
-                height: element.offsetHeight || 0
-            };
-            switch (this.position) {
-                case 'top':
-                    this.flyout.nativeElement.style.transform = 'translate3d(0, -' + dimension.height + 'px, 0)';
-                    break;
-                case 'bottom':
-                    this.flyout.nativeElement.style.transform = 'translate3d(0, ' + dimension.height + 'px, 0)';
-                    break;
-                case 'left':
-                    this.flyout.nativeElement.style.transform = 'translate3d(-' + dimension.width + 'px, 0, 0)';
-                    break;
-                default:
-                    this.flyout.nativeElement.style.transform = 'translate3d(' + dimension.width + 'px, 0, 0)';
-                    break;
-            }
-        }
-    };
+		function () {
+			if (this.open) {
+				this.flyout.nativeElement.style.transform = 'translate3d(0, 0, 0)';
+			}
+			else {
+				var /** @type {?} */ element = this.flyout.nativeElement;
+				var /** @type {?} */ dimension = {
+					left: parseInt(element.style.left, 10) || 0,
+					right: parseInt(element.style.right, 10) || 0,
+					top: parseInt(element.style.top, 10) || 0,
+					bottom: parseInt(element.style.bottom, 10) || 0,
+					width: element.offsetWidth || 0,
+					height: element.offsetHeight || 0
+				};
+				switch (this.position) {
+					case 'top':
+						this.flyout.nativeElement.style.transform = 'translate3d(0, -' + dimension.height + 'px, 0)';
+						break;
+					case 'bottom':
+						this.flyout.nativeElement.style.transform = 'translate3d(0, ' + dimension.height + 'px, 0)';
+						break;
+					case 'left':
+						this.flyout.nativeElement.style.transform = 'translate3d(-' + dimension.width + 'px, 0, 0)';
+						break;
+					default:
+						this.flyout.nativeElement.style.transform = 'translate3d(' + dimension.width + 'px, 0, 0)';
+						break;
+				}
+			}
+		};
     /**
      * Update css classes on backdrop element
      *
@@ -224,19 +226,19 @@ var FlyoutComponent = /** @class */ (function () {
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    FlyoutComponent.prototype._updateBackdropClassList = /**
+	FlyoutComponent.prototype._updateBackdropClassList = /**
      * Update css classes on backdrop element
      *
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    function () {
-        var /** @type {?} */ classList = __spread(this._defaultBackdropClasses, this.backdropClasses);
-        if (this.showBackdrop && this.open) {
-            classList.push('open');
-        }
-        this.backdrop.nativeElement.className = classList.join(' ');
-    };
+		function () {
+			var /** @type {?} */ classList = __spread(this._defaultBackdropClasses, this.backdropClasses);
+			if (this.showBackdrop && this.open) {
+				classList.push('open');
+			}
+			this.backdrop.nativeElement.className = classList.join(' ');
+		};
     /**
      * Open/Show flyout
      *
@@ -248,18 +250,18 @@ var FlyoutComponent = /** @class */ (function () {
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    FlyoutComponent.prototype._openFlyout = /**
+	FlyoutComponent.prototype._openFlyout = /**
      * Open/Show flyout
      *
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    function () {
-        this.open = true;
-        this._renderUi();
-        this.openChange.emit(this.open);
-        this.flyoutOpened.emit();
-    };
+		function () {
+			this.open = true;
+			this._renderUi();
+			this.openChange.emit(this.open);
+			this.flyoutOpened.emit();
+		};
     /**
      * Close/Hide flyout
      *
@@ -271,18 +273,18 @@ var FlyoutComponent = /** @class */ (function () {
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    FlyoutComponent.prototype._closeFlyout = /**
+	FlyoutComponent.prototype._closeFlyout = /**
      * Close/Hide flyout
      *
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    function () {
-        this.open = false;
-        this._renderUi();
-        this.openChange.emit(this.open);
-        this.flyoutClosed.emit();
-    };
+		function () {
+			this.open = false;
+			this._renderUi();
+			this.openChange.emit(this.open);
+			this.flyoutClosed.emit();
+		};
     /**
      * Render the UI
      *
@@ -294,17 +296,17 @@ var FlyoutComponent = /** @class */ (function () {
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    FlyoutComponent.prototype._renderUi = /**
+	FlyoutComponent.prototype._renderUi = /**
      * Render the UI
      *
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    function () {
-        this._updateBackdropClassList();
-        this._updateFlyoutClassList();
-        this._updateFlyoutTransform();
-    };
+		function () {
+			this._updateBackdropClassList();
+			this._updateFlyoutClassList();
+			this._updateFlyoutTransform();
+		};
     /**
      * Make flyout animated
      *
@@ -316,15 +318,15 @@ var FlyoutComponent = /** @class */ (function () {
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    FlyoutComponent.prototype._enableAnimation = /**
+	FlyoutComponent.prototype._enableAnimation = /**
      * Make flyout animated
      *
      * \@memberof FlyoutComponent
      * @return {?}
      */
-    function () {
-        this._defaultFlyoutClasses.push('animated');
-    };
+		function () {
+			this._defaultFlyoutClasses.push('animated');
+		};
     /**
      * Handle close button click event
      *
@@ -337,16 +339,16 @@ var FlyoutComponent = /** @class */ (function () {
      * @param {?} $event
      * @return {?}
      */
-    FlyoutComponent.prototype.onCloseButtonClick = /**
+	FlyoutComponent.prototype.onCloseButtonClick = /**
      * Handle close button click event
      *
      * \@memberof FlyoutComponent
      * @param {?} $event
      * @return {?}
      */
-    function ($event) {
-        this._closeFlyout();
-    };
+		function ($event) {
+			this._closeFlyout();
+		};
     /**
      * Handle backdrop click event
      *
@@ -359,42 +361,44 @@ var FlyoutComponent = /** @class */ (function () {
      * @param {?} $event
      * @return {?}
      */
-    FlyoutComponent.prototype.onBackdropClick = /**
+	FlyoutComponent.prototype.onBackdropClick = /**
      * Handle backdrop click event
      *
      * \@memberof FlyoutComponent
      * @param {?} $event
      * @return {?}
      */
-    function ($event) {
-        if (this.hideOnBackdropClick) {
-            this._closeFlyout();
-        }
-    };
-    FlyoutComponent.decorators = [
-        { type: Component, args: [{
-                    selector: 'ngx-flyout',
-                    template: "<div #backdrop (click)='onBackdropClick($event)'>\n</div>\n<div #flyout>\n  <div class=\"close-btn-container\" [ngClass]=\"showCloseButton ? '' : 'hidden'\">\n    <div class=\"close-btn\" (click)='onCloseButtonClick($event)'></div>\n  </div>\n  <div class=\"flyout-content\">\n    <ng-content></ng-content>\n  </div>\n</div>\n",
-                    styles: [".backdrop{position:fixed;top:0;bottom:0;left:0;right:0;background-color:#000;opacity:.5;display:none}.backdrop.open{display:block}.flyout{position:fixed;overflow:auto;background:#fff;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);will-change:transform}.flyout.left{top:0;bottom:0;left:0;height:100vh;max-width:100%}.flyout.right{top:0;bottom:0;right:0;height:100vh;max-width:100%}.flyout.top{left:0;right:0;top:0;width:100%;max-height:100vh}.flyout.bottom{left:0;right:0;bottom:0;max-height:100vh}.flyout.animated{transition:-webkit-transform .3s ease-in-out;transition:transform .3s ease-in-out;transition:transform .3s ease-in-out,-webkit-transform .3s ease-in-out}.close-btn-container{text-align:right}.close-btn-container .close-btn{position:relative;display:inline-block;width:36px;height:36px;cursor:pointer}.close-btn-container .close-btn::after,.close-btn-container .close-btn::before{position:absolute;content:\"\";top:18px;left:6px;right:6px;width:24px;height:1px;background-color:#4b4545}.close-btn-container .close-btn::before{-webkit-transform:rotate(45deg);transform:rotate(45deg)}.close-btn-container .close-btn::after{-webkit-transform:rotate(135deg);transform:rotate(135deg)}.close-btn-container.hidden{display:none}"]
-                },] },
-    ];
-    /** @nocollapse */
-    FlyoutComponent.ctorParameters = function () { return []; };
-    FlyoutComponent.propDecorators = {
-        "flyoutOpened": [{ type: Output },],
-        "flyoutClosed": [{ type: Output },],
-        "openChange": [{ type: Output },],
-        "position": [{ type: Input },],
-        "open": [{ type: Input },],
-        "showCloseButton": [{ type: Input },],
-        "flyoutClasses": [{ type: Input },],
-        "showBackdrop": [{ type: Input },],
-        "hideOnBackdropClick": [{ type: Input },],
-        "backdropClasses": [{ type: Input },],
-        "flyout": [{ type: ViewChild, args: ['flyout',] },],
-        "backdrop": [{ type: ViewChild, args: ['backdrop',] },],
-    };
-    return FlyoutComponent;
+		function ($event) {
+			if (this.hideOnBackdropClick) {
+				this._closeFlyout();
+			}
+		};
+	FlyoutComponent.decorators = [
+		{
+			type: Component, args: [{
+				selector: 'ngx-flyout',
+				template: "<div #backdrop (click)='onBackdropClick($event)'>\n</div>\n<div #flyout>\n  <div class=\"close-btn-container\" [ngClass]=\"showCloseButton ? '' : 'hidden'\">\n    <div class=\"close-btn\" (click)='onCloseButtonClick($event)'></div>\n  </div>\n  <div class=\"flyout-content\">\n    <ng-content></ng-content>\n  </div>\n</div>\n",
+				styles: [".backdrop{position:fixed;top:0;bottom:0;left:0;right:0;background-color:#000;opacity:.5;display:none}.backdrop.open{display:block}.flyout{position:fixed;border-radius:calc(.25rem - 1px) calc(.25rem - 1px) 0 0;overflow:auto;background:#dfdfdf;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);will-change:transform}.flyout.left{top:0;bottom:0;left:0;height:100vh;max-width:100%}.flyout.right{top:50vh;right:0;margin-top:-300px;max-width:100%}.flyout.top{left:0;right:0;top:0;width:100%;max-height:100vh}.flyout.bottom{left:0;right:0;bottom:0;max-height:100vh}.flyout.animated{transition:-webkit-transform .3s ease-in-out;transition:transform .3s ease-in-out;transition:transform .3s ease-in-out,-webkit-transform .3s ease-in-out}.close-btn-container{text-align:right}.close-btn-container .close-btn{position:relative;display:inline-block;width:36px;height:36px;cursor:pointer}.close-btn-container .close-btn::after,.close-btn-container .close-btn::before{position:absolute;content:\"\";top:18px;left:6px;right:6px;width:24px;height:1px;background-color:#4b4545}.close-btn-container .close-btn::before{-webkit-transform:rotate(45deg);transform:rotate(45deg)}.close-btn-container .close-btn::after{-webkit-transform:rotate(135deg);transform:rotate(135deg)}.close-btn-container.hidden{display:none}"]
+			},]
+		},
+	];
+	/** @nocollapse */
+	FlyoutComponent.ctorParameters = function () { return []; };
+	FlyoutComponent.propDecorators = {
+		"flyoutOpened": [{ type: Output },],
+		"flyoutClosed": [{ type: Output },],
+		"openChange": [{ type: Output },],
+		"position": [{ type: Input },],
+		"open": [{ type: Input },],
+		"showCloseButton": [{ type: Input },],
+		"flyoutClasses": [{ type: Input },],
+		"showBackdrop": [{ type: Input },],
+		"hideOnBackdropClick": [{ type: Input },],
+		"backdropClasses": [{ type: Input },],
+		"flyout": [{ type: ViewChild, args: ['flyout',] },],
+		"backdrop": [{ type: ViewChild, args: ['backdrop',] },],
+	};
+	return FlyoutComponent;
 }());
 
 /**
@@ -402,18 +406,20 @@ var FlyoutComponent = /** @class */ (function () {
  * @suppress {checkTypes} checked by tsc
  */
 var FlyoutModule = /** @class */ (function () {
-    function FlyoutModule() {
-    }
-    FlyoutModule.decorators = [
-        { type: NgModule, args: [{
-                    imports: [
-                        CommonModule
-                    ],
-                    declarations: [FlyoutComponent],
-                    exports: [FlyoutComponent]
-                },] },
-    ];
-    return FlyoutModule;
+	function FlyoutModule() {
+	}
+	FlyoutModule.decorators = [
+		{
+			type: NgModule, args: [{
+				imports: [
+					CommonModule
+				],
+				declarations: [FlyoutComponent],
+				exports: [FlyoutComponent]
+			},]
+		},
+	];
+	return FlyoutModule;
 }());
 
 /**
